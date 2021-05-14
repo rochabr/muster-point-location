@@ -18,6 +18,10 @@
 		761AA5EB264E56BA00B0B006 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 761AA5EA264E56BA00B0B006 /* Preview Assets.xcassets */; };
 		76F46B78264E6C3E00FE7C77 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = CC485CB48C7D44F8B0AD1962 /* amplifyconfiguration.json */; };
 		76F46B79264E6C4000FE7C77 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FF257EC3D7E345F19B3B469D /* awsconfiguration.json */; };
+		76F46B7A264E73B100FE7C77 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1913B60BF2742CAB59F87B1 /* AmplifyModels.swift */; };
+		76F46B7B264E73B300FE7C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A2F4BBE526472F8F722CC3 /* User.swift */; };
+		76F46B7C264E73B500FE7C77 /* User+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04FA586D6FA44F4A344C69E /* User+Schema.swift */; };
+		76F46B7D264E73EC00FE7C77 /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB3166264E5957000BD5A3 /* User+Extensions.swift */; };
 		76FB315E264E5935000BD5A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB315C264E5935000BD5A3 /* AuthService.swift */; };
 		76FB315F264E5935000BD5A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB315C264E5935000BD5A3 /* AuthService.swift */; };
 		76FB3160264E5935000BD5A3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB315D264E5935000BD5A3 /* SignInView.swift */; };
@@ -145,7 +149,6 @@
 				76FB3162264E5953000BD5A3 /* LocationManager.swift */,
 				76FB3164264E5955000BD5A3 /* MapView.swift */,
 				76FB3165264E5956000BD5A3 /* SessionView.swift */,
-				76FB3166264E5957000BD5A3 /* User+Extensions.swift */,
 				761AA5D2264E569A00B0B006 /* Assets.xcassets */,
 				761AA5D7264E569A00B0B006 /* Info.plist */,
 				761AA5D4264E569A00B0B006 /* Preview Content */,
@@ -186,6 +189,7 @@
 			children = (
 				76FB315C264E5935000BD5A3 /* AuthService.swift */,
 				76FB315D264E5935000BD5A3 /* SignInView.swift */,
+				76FB3166264E5957000BD5A3 /* User+Extensions.swift */,
 			);
 			path = auth;
 			sourceTree = "<group>";
@@ -417,7 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F46B7A264E73B100FE7C77 /* AmplifyModels.swift in Sources */,
 				76FB315F264E5935000BD5A3 /* AuthService.swift in Sources */,
+				76F46B7D264E73EC00FE7C77 /* User+Extensions.swift in Sources */,
+				76F46B7B264E73B300FE7C77 /* User.swift in Sources */,
+				76F46B7C264E73B500FE7C77 /* User+Schema.swift in Sources */,
 				761AA5E6264E56B800B0B006 /* ContentView.swift in Sources */,
 				76FB3161264E5935000BD5A3 /* SignInView.swift in Sources */,
 				761AA5E4264E56B800B0B006 /* muster_point_patrolApp.swift in Sources */,

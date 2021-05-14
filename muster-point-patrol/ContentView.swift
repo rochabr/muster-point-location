@@ -15,8 +15,7 @@ struct ContentView: View {
     @EnvironmentObject var auth: AuthService
     
     @State var users = [User]()
-    
-    var postsSubscription: AnyCancellable?
+    @State var postsSubscription: AnyCancellable?
     
     var body: some View {
         VStack{
@@ -24,13 +23,15 @@ struct ContentView: View {
             Spacer()
             List {
                 ForEach(users) { user in
-                    Text(user.username)
+                    let color = user.isSafe! ? Color.green : Color.red
+                    Text(user.username).foregroundColor(color)
                 }
             }
             Spacer()
             Button("Sign Out", action: auth.signOut)
         }.onAppear{
             observeUsers()
+            setAlert()
         }
     }
     
@@ -49,7 +50,7 @@ struct ContentView: View {
     }
 
     func observeUsers() {
-        _ = Amplify.DataStore.publisher(for: User.self)
+        postsSubscription = Amplify.DataStore.publisher(for: User.self)
             .sink {
                 if case let .failure(error) = $0 {
                     print("Subscription received error - \(error.localizedDescription)")
@@ -58,6 +59,7 @@ struct ContentView: View {
             receiveValue: { changes in
                 // handle incoming changes
                 print("Subscription received mutation: \(changes)")
+                setAlert()
             }
     }
     
