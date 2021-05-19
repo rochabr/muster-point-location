@@ -18,8 +18,8 @@ class LocationManager: NSObject,
     }
 
     let locationManager = CLLocationManager()
-    let locationTracker = AWSLocationTracker(trackerName: "muster-tracker",
-                                             region: AWSRegionType.USWest2,
+    let locationTracker = AWSLocationTracker(trackerName: <YOUR-TRACKER-NAME>,
+                                             region: AWSRegionType.<YOUR-REGION>,
                                              credentialsProvider: AWSMobileClient.default())
     
     override init() {
