@@ -301,13 +301,18 @@ The last piece we need to configure is how we should act when the user crosses a
 
 ###Test the application
 
-This solution has two apps: **muster-point-patrol** and **muster-point-client*. Build and run muster-point-client, first. Click the sign in button and create a new account. After that, you will see a map centered in the user’s location alongside the geofences that were created by you, previously.
+This solution has two apps: **muster-point-patrol** and **muster-point-client**. Build and run muster-point-client, first. Click the sign in button and create a new account. After that, you will see a map centered in the user’s location alongside the geofences that were created by you, previously.
 
- 
+<img src="/images/client-1.png"  width="300" height="600" /> 
+
 Now build and run the muster-point-patrol app. Since both apps are sharing the same Amplify backend, you can choose to either create a new user or sign in with the user previously created in the muster-point-client app. After signing in, you will see a page with all the created users. The red background represents the users that are not safe (not inside a muster point).
+	
+<img src="/images/patrol-1.png"  width="300" height="600" /> 
 
 Back to the client app, start moving until you enter a muster point. When this happens, the user is automatically marked as safe and that is also reflected in the patrol application. If the user leaves the muster point, they are marked as not-safe, again.
 
+<img src="/images/client-2.png"  width="300" height="600" />  <img src="/images/patrol-2.png"  width="300" height="600" /> 
+	
 ### Cleaning up
 
 #### Delete Amplify resources
