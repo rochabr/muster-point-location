@@ -1,7 +1,7 @@
 ### Prerequisites
 For this walkthrough, you will need an AWS account.
 
-#### Setting up Amazon Location Services
+### Setting up Amazon Location Services
 
 The first step of our solution consists of creating a new tracker and geofence collection on Amazon Location Services. Let’s start with the geofence collection:
 
