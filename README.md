@@ -6,30 +6,30 @@ For this walkthrough, you will need an AWS account.
 The first step of our solution consists of creating a new tracker and geofence collection on Amazon Location Services. Let’s start with the geofence collection:
 
 1.	Open the Amazon Location console at https://console.aws.amazon.com/location/
-2.	In the left navigation pane, choose Geofence collections. 
-3.	Choose Create geofence collection. 
+2.	In the left navigation pane, choose *Geofence collections*. 
+3.	Choose *Create geofence collection*. 
 4.	Fill out the following boxes:
     1. Name – Enter a unique name. For example, ExampleGeofenceCollection. Maximum 100 characters. Valid entries include alphanumeric characters, hyphens, periods, and underscores. 
     2. Description – Enter an optional description. 
-5.	Choose Create geofence collection. 
+5.	Choose *Create geofence collection*. 
 
 You will now add the geofences that represent your muster points. These geofences are created using GeoJSON files. You can use tools, such as geojson.io, at no charge, to draw your geofences graphically and save the output GeoJSON file. With the file ready, we can populate our collection:
 1.	Open the Amazon Location console at https://console.aws.amazon.com/location/
-2.	In the left navigation pane, choose Geofence collections. 
+2.	In the left navigation pane, choose *Geofence collections*. 
 3.	From the Geofence collections list, select the name link for the target geofence collection. 
-4.	Under Geofences, choose Create geofences. 
-5.	In the Add geofences window, drag and drop your GeoJSON into the window. 
-6.	Choose Add geofences. 
+4.	Under *Geofences*, choose *Create geofences*. 
+5.	In the *Add geofences* window, drag and drop your GeoJSON into the window. 
+6.	Choose *Add geofences*. 
 
 Now that you have a geofence collection and a tracker, you can link them together so that location updates are automatically evaluated against all of your geofences. When device positions are evaluated against geofences, events are generated. We will come back later to to set an action to these events. Let’s link a tracker resource to a geofence collection, first.
 
 1.	Open the Amazon Location console at https://console.aws.amazon.com/location/
 2.	In the left navigation pane, choose Trackers. 
-3.	Under Device trackers, select the name link of the target tracker. 
-4.	Under Linked Geofence Collections, choose Link Geofence Collection. 
-5.	In the Linked Geofence Collection window, select a geofence collection from the dropdown menu.
-6.	Choose Link. 
-After you link the tracker resource, it will be assigned an Active status. Take not of your Geofence collection and Tracker names.
+3.	Under *Device trackers*, select the name link of the target tracker. 
+4.	Under *Linked Geofence Collections*, choose *Link Geofence Collection*. 
+5.	In the *Linked Geofence Collection* window, select a geofence collection from the dropdown menu.
+6.	Choose *Link*. 
+After you link the tracker resource, it will be assigned an **Active** status. Take note of your **Geofence collection** and **Tracker** names.
 
 ### Mobile Clients – AWS Amplify
 
@@ -47,9 +47,9 @@ For this walkthrough, you should have the following prerequisites:
 
 #### Project download and configuration
 
-1.	Follow the instructions in this link to install Amplify and configure the CLI.
-2.	Download the project from the GitHub repository.
-3.	On the main folder, open a terminal and run the following command to install the Amplify Libraries and the AWS Location SDK:
+1.	Follow the instructions [in this link](https://docs.amplify.aws/start/getting-started/installation/q/integration/ios) to install Amplify and configure the CLI.
+2.	Download or clone the project from the GitHub repository.
+3.	On the main folder, open a terminal and run the following command to install the **Amplify Libraries** and the **AWS Location SDK**:
 
 ```
 pod install –repo-update
