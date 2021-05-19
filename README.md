@@ -9,7 +9,7 @@ The first step of our solution consists of creating a new tracker and geofence c
 2.	In the left navigation pane, choose *Geofence collections*. 
 3.	Choose *Create geofence collection*. 
 4.	Fill out the following boxes:
-    1. Name – Enter a unique name. For example, ExampleGeofenceCollection. Maximum 100 characters. Valid entries include alphanumeric characters, hyphens, periods, and underscores. 
+    1. Name – Enter a unique name. For example, ExampleGeofenceCollection. 
     2. Description – Enter an optional description. 
 5.	Choose *Create geofence collection*. 
 
@@ -20,6 +20,16 @@ You will now add the geofences that represent your muster points. These geofence
 4.	Under *Geofences*, choose *Create geofences*. 
 5.	In the *Add geofences* window, drag and drop your GeoJSON into the window. 
 6.	Choose *Add geofences*. 
+
+Our next step is to create a Tracker. This tracker will be used on the iOS client to detect any changes in position that the user generates. These changes are pushed back to Amazon Location Services, which analyzes the position against the geofence collection, previously created. If an ENTER or EXIT events are detected, Amazon EventBridge is triggered.
+1.	Open the Amazon Location console at https://console.aws.amazon.com/location/
+2.	In the left navigation pane, choose *Trackers*. 
+3.	Choose *Create tracker*. 
+4.	Fill out the following boxes:
+    1. Name – Enter a unique name.
+    2. Description – Enter an optional description. 
+5.	Choose *Create tracker*. 
+
 
 Now that you have a geofence collection and a tracker, you can link them together so that location updates are automatically evaluated against all of your geofences. When device positions are evaluated against geofences, events are generated. We will come back later to to set an action to these events. Let’s link a tracker resource to a geofence collection, first.
 
