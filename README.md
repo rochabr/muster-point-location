@@ -210,6 +210,7 @@ No
 ```
 
 3.	Copy the files from the folder *supporting-files/function* to *<project-dir>/amplify/backend/function/musterPointLocationFunction/* 
+	- Do not modify the header on **index.js**, specially if you created a different name for your API.
 4.	Push the changes to the backend by running:
 
 ```
