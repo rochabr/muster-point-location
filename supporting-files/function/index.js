@@ -1,8 +1,5 @@
 /* Amplify Params - DO NOT EDIT
-  API_MUSTERPOINTLOCATIONAPI_GRAPHQLAPIENDPOINTOUTPUT
-  API_MUSTERPOINTLOCATIONAPI_GRAPHQLAPIIDOUTPUT
-	ENV
-	REGION
+  PARAMS WILL BE HERE - COPY FROM COMMENT DOWN
 Amplify Params - DO NOT EDIT */
 const AWS = require('aws-sdk');
 const graphqlQuery = require('./query.js').query;
@@ -11,6 +8,7 @@ const gql = require('graphql-tag');
 const AWSAppSyncClient = require('aws-appsync').default;
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+
 
 const url = process.env.<YOUR_ENDPOINT>;
 const region = process.env.REGION;
@@ -46,6 +44,7 @@ const appsyncClient = new AWSAppSyncClient(
 exports.handler = async (event) => {
 	const userId = event?.detail?.DeviceId
     
+<<<<<<< HEAD
     const queryRes = await appsyncClient.query({
       query: gql(graphqlQuery),
       variables: { id: userId }
@@ -71,4 +70,39 @@ exports.handler = async (event) => {
             body: mutateRes,
      };
     return response;
+=======
+  const queryRes = await appsyncClient.query({
+    query: gql(graphqlQuery),
+    variables: { id: userId }
+  });
+
+  const user = queryRes?.data?.getUser
+  if (!user) {
+    return {
+      statusCode: 404,
+      body: `User with id ${userId} not found in the database.`,
+    };
+  }
+
+  const mutation = gql(graphqlUpdate)
+
+  const version = user?._version
+  const mutateRes = await appsyncClient.mutate({
+    mutation,
+    variables: { 
+    	input: {
+    		id: userId,
+    		isSafe: event?.detail?.EventType === "ENTER",
+    		_version: version
+    	}
+    }
+  });    
+
+  
+  response = {
+          statusCode: 200,
+          body: mutateRes,
+   };
+  return response;
+>>>>>>> 898406eb4e45b3f77f26aba5296220b6be3168eb
 };
