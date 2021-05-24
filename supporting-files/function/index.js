@@ -9,8 +9,7 @@ const AWSAppSyncClient = require('aws-appsync').default;
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-
-const url = process.env.<YOUR_ENDPOINT>;
+const url = process.env.<YOUR_ENDPOINT_FROM_PARAMS>;
 const region = process.env.REGION;
 AWS.config.update({
   region,
@@ -44,33 +43,6 @@ const appsyncClient = new AWSAppSyncClient(
 exports.handler = async (event) => {
 	const userId = event?.detail?.DeviceId
     
-<<<<<<< HEAD
-    const queryRes = await appsyncClient.query({
-      query: gql(graphqlQuery),
-      variables: { id: userId }
-    });
-
-    const mutation = gql(graphqlUpdate)
-
-    const version = queryRes?.data?.getUser?._version
-	const mutateRes = await appsyncClient.mutate({
-      mutation,
-      variables: { 
-      	input: {
-      		id: userId,
-      		isSafe: event?.detail?.EventType === "ENTER",
-      		_version: version
-      	}
-      }
-    });    
-
-    
-    response = {
-            statusCode: 200,
-            body: mutateRes,
-     };
-    return response;
-=======
   const queryRes = await appsyncClient.query({
     query: gql(graphqlQuery),
     variables: { id: userId }
@@ -104,5 +76,4 @@ exports.handler = async (event) => {
           body: mutateRes,
    };
   return response;
->>>>>>> 898406eb4e45b3f77f26aba5296220b6be3168eb
 };
