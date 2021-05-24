@@ -19,24 +19,40 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            Button("Set alert", action: setAlert)
-            Spacer()
             List {
                 ForEach(users) { user in
-                    let color = user.isSafe! ? Color.green : Color.red
-                    Text(user.username).foregroundColor(color)
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            Text(user.username)
+                                .font(.system(size: 50))
+                                .foregroundColor(Color.white)
+                            Spacer()
+                        }
+                        .frame(
+                                minWidth: 0,
+                                maxWidth: .infinity,
+                                minHeight: 180,
+                                maxHeight: 180,
+                                alignment: .center
+                        )
+                        .background(user.isSafe! ? Color.green : Color.red)
+                        Spacer()
+                    }
                 }
             }
             Spacer()
             Button("Sign Out", action: auth.signOut)
         }.onAppear{
             observeUsers()
-            setAlert()
+            queryUsers()
         }
     }
     
-    func setAlert() {
-        Amplify.DataStore.query(User.self) {
+    func queryUsers() {
+        let u = User.keys
+        Amplify.DataStore.query(User.self, where: u.username !=  "patrol" && u.username != "fernsi") {
             result in
             switch result {
             case . success(let users):
@@ -59,7 +75,7 @@ struct ContentView: View {
             receiveValue: { changes in
                 // handle incoming changes
                 print("Subscription received mutation: \(changes)")
-                setAlert()
+                queryUsers()
             }
     }
     
